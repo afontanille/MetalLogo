@@ -8,10 +8,6 @@
 
 import Cocoa
 
-enum ApplicationError: ErrorType {
-    case LibraryNotLoaded
-    case BufferError
-}
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {

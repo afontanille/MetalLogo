@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		696D37651C90DB8C0001C06A /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1621C8B53BE00D6EE64 /* Camera.swift */; };
+		696D37661C90DB8E0001C06A /* MathUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1631C8B53BE00D6EE64 /* MathUtilities.swift */; };
+		696D37671C90DB910001C06A /* MetalLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1641C8B53BE00D6EE64 /* MetalLogo.swift */; };
+		696D37681C90DB940001C06A /* logo.metal in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1601C8B52A400D6EE64 /* logo.metal */; };
+		696D37691C90DDC10001C06A /* MetalRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1651C8B53BE00D6EE64 /* MetalRenderer.swift */; };
 		6993A1511C8B521200D6EE64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1501C8B521200D6EE64 /* AppDelegate.swift */; };
 		6993A1531C8B521200D6EE64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1521C8B521200D6EE64 /* ViewController.swift */; };
 		6993A1551C8B521200D6EE64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6993A1541C8B521200D6EE64 /* Assets.xcassets */; };
@@ -17,6 +22,11 @@
 		6993A1681C8B53BE00D6EE64 /* MetalLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1641C8B53BE00D6EE64 /* MetalLogo.swift */; };
 		6993A1691C8B53BE00D6EE64 /* MetalRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1651C8B53BE00D6EE64 /* MetalRenderer.swift */; };
 		6993A16C1C8B540300D6EE64 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6993A16B1C8B540300D6EE64 /* MetalKit.framework */; };
+		6993A1781C8BD32000D6EE64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1771C8BD32000D6EE64 /* AppDelegate.swift */; };
+		6993A17A1C8BD32000D6EE64 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1791C8BD32000D6EE64 /* GameViewController.swift */; };
+		6993A17F1C8BD32000D6EE64 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6993A17D1C8BD32000D6EE64 /* Main.storyboard */; };
+		6993A1811C8BD32000D6EE64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6993A1801C8BD32000D6EE64 /* Assets.xcassets */; };
+		6993A1841C8BD32000D6EE64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6993A1821C8BD32000D6EE64 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,12 +36,19 @@
 		6993A1541C8B521200D6EE64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6993A1571C8B521200D6EE64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6993A1591C8B521200D6EE64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6993A1601C8B52A400D6EE64 /* logo.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = logo.metal; sourceTree = "<group>"; };
-		6993A1621C8B53BE00D6EE64 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Camera.swift; path = Helpers/Camera.swift; sourceTree = "<group>"; };
-		6993A1631C8B53BE00D6EE64 /* MathUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MathUtilities.swift; path = Helpers/MathUtilities.swift; sourceTree = "<group>"; };
-		6993A1641C8B53BE00D6EE64 /* MetalLogo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetalLogo.swift; path = Model/MetalLogo.swift; sourceTree = "<group>"; };
-		6993A1651C8B53BE00D6EE64 /* MetalRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetalRenderer.swift; path = Views/MetalRenderer.swift; sourceTree = "<group>"; };
+		6993A1601C8B52A400D6EE64 /* logo.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; name = logo.metal; path = Shared/Shaders/logo.metal; sourceTree = SOURCE_ROOT; };
+		6993A1621C8B53BE00D6EE64 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Camera.swift; path = ../Shared/Helpers/Camera.swift; sourceTree = "<group>"; };
+		6993A1631C8B53BE00D6EE64 /* MathUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MathUtilities.swift; path = ../Shared/Helpers/MathUtilities.swift; sourceTree = "<group>"; };
+		6993A1641C8B53BE00D6EE64 /* MetalLogo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetalLogo.swift; path = ../Shared/Model/MetalLogo.swift; sourceTree = "<group>"; };
+		6993A1651C8B53BE00D6EE64 /* MetalRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetalRenderer.swift; path = ../Shared/Model/MetalRenderer.swift; sourceTree = "<group>"; };
 		6993A16B1C8B540300D6EE64 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		6993A1751C8BD32000D6EE64 /* MetalLogo-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MetalLogo-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6993A1771C8BD32000D6EE64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6993A1791C8BD32000D6EE64 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		6993A17E1C8BD32000D6EE64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6993A1801C8BD32000D6EE64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6993A1831C8BD32000D6EE64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6993A1851C8BD32000D6EE64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,13 +60,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6993A1721C8BD32000D6EE64 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		696D37641C90DB320001C06A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				6993A16A1C8B53C700D6EE64 /* Helpers */,
+				6993A16F1C8B57EA00D6EE64 /* Model */,
+				6993A15F1C8B52A400D6EE64 /* Shaders */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
 		6993A1441C8B521200D6EE64 = {
 			isa = PBXGroup;
 			children = (
+				696D37641C90DB320001C06A /* Shared */,
 				6993A14F1C8B521200D6EE64 /* MetalLogo */,
+				6993A1761C8BD32000D6EE64 /* MetalLogo-iOS */,
 				6993A16D1C8B540900D6EE64 /* Frameworks */,
 				6993A14E1C8B521200D6EE64 /* Products */,
 			);
@@ -59,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				6993A14D1C8B521200D6EE64 /* MetalLogo.app */,
+				6993A1751C8BD32000D6EE64 /* MetalLogo-iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,15 +103,11 @@
 		6993A14F1C8B521200D6EE64 /* MetalLogo */ = {
 			isa = PBXGroup;
 			children = (
-				6993A16A1C8B53C700D6EE64 /* Helpers */,
-				6993A16F1C8B57EA00D6EE64 /* Model */,
-				6993A1701C8B582D00D6EE64 /* View Delegates */,
 				6993A16E1C8B57D200D6EE64 /* View Controllers */,
 				6993A1501C8B521200D6EE64 /* AppDelegate.swift */,
 				6993A1541C8B521200D6EE64 /* Assets.xcassets */,
 				6993A1561C8B521200D6EE64 /* Main.storyboard */,
 				6993A1591C8B521200D6EE64 /* Info.plist */,
-				6993A15F1C8B52A400D6EE64 /* Shaders */,
 			);
 			path = MetalLogo;
 			sourceTree = "<group>";
@@ -84,7 +117,8 @@
 			children = (
 				6993A1601C8B52A400D6EE64 /* logo.metal */,
 			);
-			path = Shaders;
+			name = Shaders;
+			path = MetalLogo/Shaders;
 			sourceTree = "<group>";
 		};
 		6993A16A1C8B53C700D6EE64 /* Helpers */ = {
@@ -94,6 +128,7 @@
 				6993A1631C8B53BE00D6EE64 /* MathUtilities.swift */,
 			);
 			name = Helpers;
+			path = MetalLogo;
 			sourceTree = "<group>";
 		};
 		6993A16D1C8B540900D6EE64 /* Frameworks */ = {
@@ -117,16 +152,23 @@
 			isa = PBXGroup;
 			children = (
 				6993A1641C8B53BE00D6EE64 /* MetalLogo.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		6993A1701C8B582D00D6EE64 /* View Delegates */ = {
-			isa = PBXGroup;
-			children = (
 				6993A1651C8B53BE00D6EE64 /* MetalRenderer.swift */,
 			);
-			name = "View Delegates";
+			name = Model;
+			path = MetalLogo;
+			sourceTree = "<group>";
+		};
+		6993A1761C8BD32000D6EE64 /* MetalLogo-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6993A1771C8BD32000D6EE64 /* AppDelegate.swift */,
+				6993A1791C8BD32000D6EE64 /* GameViewController.swift */,
+				6993A17D1C8BD32000D6EE64 /* Main.storyboard */,
+				6993A1801C8BD32000D6EE64 /* Assets.xcassets */,
+				6993A1821C8BD32000D6EE64 /* LaunchScreen.storyboard */,
+				6993A1851C8BD32000D6EE64 /* Info.plist */,
+			);
+			path = "MetalLogo-iOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +191,23 @@
 			productReference = 6993A14D1C8B521200D6EE64 /* MetalLogo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		6993A1741C8BD32000D6EE64 /* MetalLogo-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6993A1881C8BD32000D6EE64 /* Build configuration list for PBXNativeTarget "MetalLogo-iOS" */;
+			buildPhases = (
+				6993A1711C8BD32000D6EE64 /* Sources */,
+				6993A1721C8BD32000D6EE64 /* Frameworks */,
+				6993A1731C8BD32000D6EE64 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MetalLogo-iOS";
+			productName = "MetalLogo-iOS";
+			productReference = 6993A1751C8BD32000D6EE64 /* MetalLogo-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -160,6 +219,9 @@
 				ORGANIZATIONNAME = "Antonin Fontanille";
 				TargetAttributes = {
 					6993A14C1C8B521200D6EE64 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					6993A1741C8BD32000D6EE64 = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
 				};
@@ -178,6 +240,7 @@
 			projectRoot = "";
 			targets = (
 				6993A14C1C8B521200D6EE64 /* MetalLogo */,
+				6993A1741C8BD32000D6EE64 /* MetalLogo-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -189,6 +252,16 @@
 			files = (
 				6993A1551C8B521200D6EE64 /* Assets.xcassets in Resources */,
 				6993A1581C8B521200D6EE64 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6993A1731C8BD32000D6EE64 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6993A1841C8BD32000D6EE64 /* LaunchScreen.storyboard in Resources */,
+				6993A1811C8BD32000D6EE64 /* Assets.xcassets in Resources */,
+				6993A17F1C8BD32000D6EE64 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +282,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6993A1711C8BD32000D6EE64 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				696D37691C90DDC10001C06A /* MetalRenderer.swift in Sources */,
+				696D37651C90DB8C0001C06A /* Camera.swift in Sources */,
+				696D37671C90DB910001C06A /* MetalLogo.swift in Sources */,
+				6993A17A1C8BD32000D6EE64 /* GameViewController.swift in Sources */,
+				6993A1781C8BD32000D6EE64 /* AppDelegate.swift in Sources */,
+				696D37661C90DB8E0001C06A /* MathUtilities.swift in Sources */,
+				696D37681C90DB940001C06A /* logo.metal in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -218,6 +305,22 @@
 				6993A1571C8B521200D6EE64 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6993A17D1C8BD32000D6EE64 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6993A17E1C8BD32000D6EE64 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6993A1821C8BD32000D6EE64 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6993A1831C8BD32000D6EE64 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -327,6 +430,38 @@
 			};
 			name = Release;
 		};
+		6993A1861C8BD32000D6EE64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = "MetalLogo-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Antonin-Fontanille.MetalLogo-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6993A1871C8BD32000D6EE64 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "MetalLogo-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Antonin-Fontanille.MetalLogo-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -346,6 +481,16 @@
 				6993A15E1C8B521200D6EE64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6993A1881C8BD32000D6EE64 /* Build configuration list for PBXNativeTarget "MetalLogo-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6993A1861C8BD32000D6EE64 /* Debug */,
+				6993A1871C8BD32000D6EE64 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

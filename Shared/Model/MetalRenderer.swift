@@ -8,9 +8,14 @@
 
 import MetalKit
 
-class MetalRenderer : NSObject, MTKViewDelegate {
+enum MetalRendererError: ErrorType {
+    case LibraryNotLoaded
+    case BufferError
+}
+
+class MetalRenderer : NSObject {
     
-    private let device = MTLCreateSystemDefaultDevice()
+    internal let device = MTLCreateSystemDefaultDevice()
     
     private let commandQueue: MTLCommandQueue?
     
@@ -52,7 +57,7 @@ class MetalRenderer : NSObject, MTKViewDelegate {
     func makePipeline() throws {
         
         guard let library = self.device?.newDefaultLibrary() else {
-            throw ApplicationError.LibraryNotLoaded
+            throw MetalRendererError.LibraryNotLoaded
         }
         
         // Get our shaders from the library
@@ -71,7 +76,7 @@ class MetalRenderer : NSObject, MTKViewDelegate {
     
     func updateUniformsForView(layer: CAMetalLayer) throws {
         guard let uniformBuffer = self.uniformBuffer else {
-            throw ApplicationError.BufferError
+            throw MetalRendererError.BufferError
         }
         
         let drawableSize = layer.drawableSize
@@ -83,23 +88,21 @@ class MetalRenderer : NSObject, MTKViewDelegate {
         memcpy(uniformBuffer.contents(), &modelViewProjectionMatrix, sizeof(matrix_float4x4))
     }
     
-    func drawInMTKView(view: MTKView) {
+    func drawInView(drawable: CAMetalDrawable) {
         
-        guard let commandQueue = self.commandQueue, layer = view.layer as? CAMetalLayer, pipelineState = self.pipelineState else { return }
+        guard let commandQueue = self.commandQueue, pipelineState = self.pipelineState else { return }
         
         do {
-            try updateUniformsForView(layer)
+            try updateUniformsForView(drawable.layer)
         } catch {
             fatalError()
         }
         
         let commandBuffer = commandQueue.commandBuffer()
         
-        guard let currentDrawable = view.currentDrawable else { return }
-        
         let passDescriptor = MTLRenderPassDescriptor()
         
-        passDescriptor.colorAttachments[0].texture = currentDrawable.texture
+        passDescriptor.colorAttachments[0].texture = drawable.texture
         passDescriptor.colorAttachments[0].loadAction = MTLLoadAction.Clear
         passDescriptor.colorAttachments[0].storeAction = MTLStoreAction.Store
         passDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(0.55, 0.55, 0.55, 1)
@@ -115,11 +118,8 @@ class MetalRenderer : NSObject, MTKViewDelegate {
         
         commandEncoder.endEncoding()
         
-        commandBuffer.presentDrawable(currentDrawable)
+        commandBuffer.presentDrawable(drawable)
         commandBuffer.commit()
         
     }
-    
-    func mtkView(view: MTKView, drawableSizeWillChange size: CGSize) {}
-    
 }
