@@ -28,9 +28,11 @@ class ViewController: NSViewController, MTKViewDelegate {
     }
 
     func drawInMTKView(view: MTKView) {
-        guard viewDrawable = view.currentDrawable else { return }
+        guard let viewDrawable = view.currentDrawable else { return }
         
         self.renderer.drawInView(viewDrawable)
     }
+    
+    func mtkView(view: MTKView, drawableSizeWillChange size: CGSize) {}
 }
 
