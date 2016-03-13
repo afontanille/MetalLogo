@@ -7,11 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6961119D1C95E05600F107F0 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1621C8B53BE00D6EE64 /* Camera.swift */; };
+		6961119E1C95E05900F107F0 /* MathUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1631C8B53BE00D6EE64 /* MathUtilities.swift */; };
+		6961119F1C95E05C00F107F0 /* MetalLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1641C8B53BE00D6EE64 /* MetalLogo.swift */; };
+		696111A01C95E05E00F107F0 /* MetalRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1651C8B53BE00D6EE64 /* MetalRenderer.swift */; };
+		696111A11C95E06200F107F0 /* logo.metal in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1601C8B52A400D6EE64 /* logo.metal */; };
 		696D37651C90DB8C0001C06A /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1621C8B53BE00D6EE64 /* Camera.swift */; };
 		696D37661C90DB8E0001C06A /* MathUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1631C8B53BE00D6EE64 /* MathUtilities.swift */; };
 		696D37671C90DB910001C06A /* MetalLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1641C8B53BE00D6EE64 /* MetalLogo.swift */; };
 		696D37681C90DB940001C06A /* logo.metal in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1601C8B52A400D6EE64 /* logo.metal */; };
 		696D37691C90DDC10001C06A /* MetalRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1651C8B53BE00D6EE64 /* MetalRenderer.swift */; };
+		696D828B1C9364660096C91C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696D828A1C9364660096C91C /* AppDelegate.swift */; };
+		696D828D1C9364660096C91C /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696D828C1C9364660096C91C /* GameViewController.swift */; };
+		696D82921C9364660096C91C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 696D82901C9364660096C91C /* Main.storyboard */; };
+		696D82941C9364660096C91C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 696D82931C9364660096C91C /* Assets.xcassets */; };
 		6993A1511C8B521200D6EE64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1501C8B521200D6EE64 /* AppDelegate.swift */; };
 		6993A1531C8B521200D6EE64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6993A1521C8B521200D6EE64 /* ViewController.swift */; };
 		6993A1551C8B521200D6EE64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6993A1541C8B521200D6EE64 /* Assets.xcassets */; };
@@ -30,6 +39,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		696D82881C9364660096C91C /* MetalLogo-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MetalLogo-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		696D828A1C9364660096C91C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		696D828C1C9364660096C91C /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		696D82911C9364660096C91C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		696D82931C9364660096C91C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		696D82951C9364660096C91C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6993A14D1C8B521200D6EE64 /* MetalLogo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MetalLogo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6993A1501C8B521200D6EE64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6993A1521C8B521200D6EE64 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Controllers/ViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +67,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		696D82851C9364660096C91C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6993A14A1C8B521200D6EE64 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -80,12 +102,25 @@
 			name = Shared;
 			sourceTree = "<group>";
 		};
+		696D82891C9364660096C91C /* MetalLogo-tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				696D828A1C9364660096C91C /* AppDelegate.swift */,
+				696D828C1C9364660096C91C /* GameViewController.swift */,
+				696D82901C9364660096C91C /* Main.storyboard */,
+				696D82931C9364660096C91C /* Assets.xcassets */,
+				696D82951C9364660096C91C /* Info.plist */,
+			);
+			path = "MetalLogo-tvOS";
+			sourceTree = "<group>";
+		};
 		6993A1441C8B521200D6EE64 = {
 			isa = PBXGroup;
 			children = (
 				696D37641C90DB320001C06A /* Shared */,
 				6993A14F1C8B521200D6EE64 /* MetalLogo */,
 				6993A1761C8BD32000D6EE64 /* MetalLogo-iOS */,
+				696D82891C9364660096C91C /* MetalLogo-tvOS */,
 				6993A16D1C8B540900D6EE64 /* Frameworks */,
 				6993A14E1C8B521200D6EE64 /* Products */,
 			);
@@ -96,6 +131,7 @@
 			children = (
 				6993A14D1C8B521200D6EE64 /* MetalLogo.app */,
 				6993A1751C8BD32000D6EE64 /* MetalLogo-iOS.app */,
+				696D82881C9364660096C91C /* MetalLogo-tvOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -174,6 +210,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		696D82871C9364660096C91C /* MetalLogo-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 696D82961C9364660096C91C /* Build configuration list for PBXNativeTarget "MetalLogo-tvOS" */;
+			buildPhases = (
+				696D82841C9364660096C91C /* Sources */,
+				696D82851C9364660096C91C /* Frameworks */,
+				696D82861C9364660096C91C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MetalLogo-tvOS";
+			productName = "MetalLogo-tvOS";
+			productReference = 696D82881C9364660096C91C /* MetalLogo-tvOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		6993A14C1C8B521200D6EE64 /* MetalLogo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6993A15C1C8B521200D6EE64 /* Build configuration list for PBXNativeTarget "MetalLogo" */;
@@ -218,6 +271,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Antonin Fontanille";
 				TargetAttributes = {
+					696D82871C9364660096C91C = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
 					6993A14C1C8B521200D6EE64 = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
@@ -241,11 +297,21 @@
 			targets = (
 				6993A14C1C8B521200D6EE64 /* MetalLogo */,
 				6993A1741C8BD32000D6EE64 /* MetalLogo-iOS */,
+				696D82871C9364660096C91C /* MetalLogo-tvOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		696D82861C9364660096C91C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				696D82941C9364660096C91C /* Assets.xcassets in Resources */,
+				696D82921C9364660096C91C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6993A14B1C8B521200D6EE64 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -268,6 +334,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		696D82841C9364660096C91C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6961119D1C95E05600F107F0 /* Camera.swift in Sources */,
+				696111A01C95E05E00F107F0 /* MetalRenderer.swift in Sources */,
+				6961119F1C95E05C00F107F0 /* MetalLogo.swift in Sources */,
+				696111A11C95E06200F107F0 /* logo.metal in Sources */,
+				696D828D1C9364660096C91C /* GameViewController.swift in Sources */,
+				696D828B1C9364660096C91C /* AppDelegate.swift in Sources */,
+				6961119E1C95E05900F107F0 /* MathUtilities.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6993A1491C8B521200D6EE64 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -299,6 +379,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		696D82901C9364660096C91C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				696D82911C9364660096C91C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		6993A1561C8B521200D6EE64 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -326,6 +414,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		696D82971C9364660096C91C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				INFOPLIST_FILE = "MetalLogo-tvOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Antonin-Fontanille.MetalLogo-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.1;
+			};
+			name = Debug;
+		};
+		696D82981C9364660096C91C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "MetalLogo-tvOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Antonin-Fontanille.MetalLogo-tvOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		6993A15A1C8B521200D6EE64 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -465,6 +587,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		696D82961C9364660096C91C /* Build configuration list for PBXNativeTarget "MetalLogo-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				696D82971C9364660096C91C /* Debug */,
+				696D82981C9364660096C91C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6993A1481C8B521200D6EE64 /* Build configuration list for PBXProject "MetalLogo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
