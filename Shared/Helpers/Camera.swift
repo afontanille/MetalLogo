@@ -10,7 +10,7 @@ import simd
 
 extension Float {
     func rad() -> Float {
-        return self * Float(M_PI) / 180.0
+        return self * .pi / 180.0
     }
 }
 
@@ -21,7 +21,7 @@ struct Camera {
     var distance: Float = -2
     
     var aspect: Float = 16/9
-    var fov: Float = Float((2.0 * M_PI) / 5.0)
+    var fov: Float = Float((2.0 * .pi) / 5.0)
     var near: Float = 1.0
     var far: Float = 100
     
@@ -34,7 +34,7 @@ struct Camera {
             
             let modelMatrix = matrix_multiply(xRot, yRot)
             let viewMatrix = matrix_float4x4_translation(vector_float3(0, 0, distance))
-            let projectionMatrix = matrix_float4x4_perspective(aspect, fovy: fov, near: near, far: far)
+            let projectionMatrix = matrix_float4x4_perspective(aspect: aspect, fovy: fov, near: near, far: far)
             
             return matrix_multiply(projectionMatrix ,matrix_multiply(viewMatrix, modelMatrix))
         }

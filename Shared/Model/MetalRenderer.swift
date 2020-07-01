@@ -8,7 +8,7 @@
 
 import MetalKit
 
-enum MetalRendererError: ErrorType {
+enum MetalRendererError: Error {
     case LibraryNotLoaded
     case BufferError
 }
@@ -35,15 +35,20 @@ class MetalRenderer : NSObject {
         
         guard let device = self.device else { fatalError() }
         
-        self.commandQueue = device.newCommandQueue()
+        self.commandQueue = device.makeCommandQueue()
         
-        self.vertexBuffer = device.newBufferWithBytes(self.drawingObject.vertexData, length: sizeof(Vertex)*self.drawingObject.vertexData.count, options: MTLResourceOptions.CPUCacheModeDefaultCache)
+        self.vertexBuffer = device.makeBuffer(bytes: self.drawingObject.vertexData,
+                                              length: MemoryLayout<Vertex>.size * self.drawingObject.vertexData.count,
+                                              options: [])
         
         let indices = self.drawingObject.indexData
         
-        self.indexBuffer = device.newBufferWithBytes(indices, length: sizeof(IndexType)*indices.count, options: MTLResourceOptions.CPUCacheModeDefaultCache)
+        self.indexBuffer = device.makeBuffer(bytes: indices,
+                                             length: MemoryLayout<IndexType>.size * indices.count,
+                                             options: [])
         
-        self.uniformBuffer = device.newBufferWithLength(sizeof(matrix_float4x4), options: MTLResourceOptions.CPUCacheModeDefaultCache)
+        self.uniformBuffer = device.makeBuffer(length: MemoryLayout<matrix_float4x4>.size,
+                                               options: [])
         
         super.init()
         
@@ -56,22 +61,22 @@ class MetalRenderer : NSObject {
     
     func makePipeline() throws {
         
-        guard let library = self.device?.newDefaultLibrary() else {
+        guard let library = self.device?.makeDefaultLibrary() else {
             throw MetalRendererError.LibraryNotLoaded
         }
         
         // Get our shaders from the library
-        let vertexFunc = library.newFunctionWithName("vertex_project")
-        let fragmentFunc = library.newFunctionWithName("fragment_flatcolor")
+        let vertexFunc = library.makeFunction(name: "vertex_project")
+        let fragmentFunc = library.makeFunction(name: "fragment_flatcolor")
         
         // Set our pipeline up
         let pipelineDescriptor = MTLRenderPipelineDescriptor()
         pipelineDescriptor.vertexFunction = vertexFunc
         pipelineDescriptor.fragmentFunction = fragmentFunc
-        pipelineDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormat.BGRA8Unorm
+        pipelineDescriptor.colorAttachments[0].pixelFormat = MTLPixelFormat.bgra8Unorm
         
         // Create our render pipeline state
-        try self.pipelineState = self.device?.newRenderPipelineStateWithDescriptor(pipelineDescriptor)
+        try self.pipelineState = self.device?.makeRenderPipelineState(descriptor: pipelineDescriptor)
     }
     
     func updateUniformsForView(layer: CAMetalLayer) throws {
@@ -85,41 +90,44 @@ class MetalRenderer : NSObject {
         
         var modelViewProjectionMatrix = self.cameraObject.modelViewProjectionMatrix
         
-        memcpy(uniformBuffer.contents(), &modelViewProjectionMatrix, sizeof(matrix_float4x4))
+        memcpy(uniformBuffer.contents(), &modelViewProjectionMatrix, MemoryLayout<matrix_float4x4>.size)
     }
     
     func drawInView(drawable: CAMetalDrawable) {
         
-        guard let commandQueue = self.commandQueue, pipelineState = self.pipelineState else { return }
+        guard let commandQueue = self.commandQueue, let pipelineState = self.pipelineState else { return }
         
         do {
-            try updateUniformsForView(drawable.layer)
+            try updateUniformsForView(layer: drawable.layer)
         } catch {
             fatalError()
         }
         
-        let commandBuffer = commandQueue.commandBuffer()
+        let commandBuffer = commandQueue.makeCommandBuffer()
         
         let passDescriptor = MTLRenderPassDescriptor()
         
         passDescriptor.colorAttachments[0].texture = drawable.texture
-        passDescriptor.colorAttachments[0].loadAction = MTLLoadAction.Clear
-        passDescriptor.colorAttachments[0].storeAction = MTLStoreAction.Store
+        passDescriptor.colorAttachments[0].loadAction = MTLLoadAction.clear
+        passDescriptor.colorAttachments[0].storeAction = MTLStoreAction.dontCare
         passDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(0.55, 0.55, 0.55, 1)
         
-        let commandEncoder = commandBuffer.renderCommandEncoderWithDescriptor(passDescriptor)
+        guard let commandEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: passDescriptor) else {
+            return
+        }
+        
         commandEncoder.setRenderPipelineState(pipelineState)
-        commandEncoder.setVertexBuffer(self.vertexBuffer, offset: 0, atIndex: 0)
-        commandEncoder.setVertexBuffer(self.uniformBuffer, offset: 0, atIndex: 1)
+        commandEncoder.setVertexBuffer(self.vertexBuffer, offset: 0, index: 0)
+        commandEncoder.setVertexBuffer(self.uniformBuffer, offset: 0, index: 1)
         
         if let indexBuffer = self.indexBuffer {
-            commandEncoder.drawIndexedPrimitives(MTLPrimitiveType.Triangle, indexCount: indexBuffer.length / sizeof(IndexType), indexType: MTLIndexType.UInt16, indexBuffer: indexBuffer, indexBufferOffset: 0)
+            commandEncoder.drawIndexedPrimitives(type: MTLPrimitiveType.triangle, indexCount: indexBuffer.length / MemoryLayout<IndexType>.size, indexType: MTLIndexType.uint16, indexBuffer: indexBuffer, indexBufferOffset: 0)
         }
         
         commandEncoder.endEncoding()
         
-        commandBuffer.presentDrawable(drawable)
-        commandBuffer.commit()
+        commandBuffer?.present(drawable)
+        commandBuffer?.commit()
         
     }
 }

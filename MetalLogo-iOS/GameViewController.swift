@@ -25,16 +25,11 @@ class GameViewController:UIViewController, MTKViewDelegate {
         view.delegate = self
     }
     
-    func drawInMTKView(view: MTKView) {
-        
+    func draw(in view: MTKView) {
         guard let viewDrawable = view.currentDrawable else { return }
 
-        self.renderer.drawInView(viewDrawable)
-        
+        self.renderer.drawInView(drawable: viewDrawable)
     }
     
-    
-    func mtkView(view: MTKView, drawableSizeWillChange size: CGSize) {
-        
-    }
+    func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {}
 }

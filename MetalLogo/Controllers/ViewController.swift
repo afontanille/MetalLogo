@@ -21,18 +21,18 @@ class ViewController: NSViewController, MTKViewDelegate {
         self.metalView.delegate = self
     }
 
-    override var representedObject: AnyObject? {
+    override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
         }
     }
 
-    func drawInMTKView(view: MTKView) {
+    func draw(in view: MTKView) {
         guard let viewDrawable = view.currentDrawable else { return }
         
-        self.renderer.drawInView(viewDrawable)
+        self.renderer.drawInView(drawable: viewDrawable)
     }
     
-    func mtkView(view: MTKView, drawableSizeWillChange size: CGSize) {}
+    func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {}
 }
 

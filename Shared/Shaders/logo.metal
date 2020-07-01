@@ -21,7 +21,7 @@ struct Uniforms
     float4x4 modelViewProjectionMatrix;
 };
 
-vertex Vertex vertex_project(device Vertex *vertices [[buffer(0)]],
+vertex Vertex vertex_project(constant Vertex *vertices [[buffer(0)]],
                              constant Uniforms *uniforms [[buffer(1)]],
                              uint vertexId [[vertex_id]])
 {

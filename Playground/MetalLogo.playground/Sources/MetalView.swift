@@ -12,11 +12,11 @@ public class MetalView: MTKView {
         super.init(coder: coder)
     }
     
-    override public func drawRect(dirtyRect: NSRect) {
-        super.drawRect(dirtyRect)
+    override public func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
         
         guard let currentDrawable = self.currentDrawable else { return }
         
-        renderer.drawInView(currentDrawable)
+        renderer.drawInView(drawable: currentDrawable)
     }
 }

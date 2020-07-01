@@ -23,7 +23,7 @@
 
 import simd
 
-func matrix_float4x4_translation(t: vector_float3) -> matrix_float4x4
+func matrix_float4x4_translation(_ t: vector_float3) -> matrix_float4x4
 {
     let X = vector_float4( 1, 0, 0, 0 )
     let Y = vector_float4( 0, 1, 0, 0 )
@@ -33,7 +33,7 @@ func matrix_float4x4_translation(t: vector_float3) -> matrix_float4x4
     return matrix_float4x4(columns: (X, Y, Z, W))
 }
 
-func matrix_float4x4_uniform_scale(scale: Float) -> matrix_float4x4
+func matrix_float4x4_uniform_scale(_ scale: Float) -> matrix_float4x4
 {
     let X = vector_float4( scale, 0, 0, 0 )
     let Y = vector_float4( 0, scale, 0, 0 )
@@ -43,7 +43,7 @@ func matrix_float4x4_uniform_scale(scale: Float) -> matrix_float4x4
     return matrix_float4x4(columns: (X, Y, Z, W))
 }
 
-func matrix_float4x4_rotation(axis axis: vector_float3, angle: Float) -> matrix_float4x4 {
+func matrix_float4x4_rotation(axis: vector_float3, angle: Float) -> matrix_float4x4 {
     
     let c = cosf(angle)
     let s = sinf(angle)
